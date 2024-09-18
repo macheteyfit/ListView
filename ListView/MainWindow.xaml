@@ -1,0 +1,87 @@
+﻿<Window x:Class="ListView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Person List">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Name:"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Margin="10"/>
+                            <TextBox x:Name="textBoxName"
+                                 Grid.Row="0"
+                                 Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Margin="10" />
+
+                            <Label Content="Age:"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Margin="10"/>
+                            <TextBox x:Name="textBoxAge"
+                                 Grid.Row="1"
+                                 Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Margin="10" />
+
+                            <Label Content="Email:"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               Margin="10"/>
+                            <TextBox x:Name="textBoxEmail"
+                                 Grid.Row="2"
+                                 Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Margin="10" />
+
+                            <Button x:Name="buttonAdd"
+                                Content="Add Person"
+                                Width="120"
+                                Margin="10"
+                                HorizontalAlignment="Center"
+                                Grid.Row="3"
+                                Grid.ColumnSpan="2"/>
+                        </Grid>
+                        <ListView x:Name="peopleListView">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn
+                                        Header="Name"
+                                        DisplayMemberBinding="{Binding Name}"
+                                        Width="100"/>
+                                    <GridViewColumn
+                                        Header="Age"
+                                        DisplayMemberBinding="{Binding Age}"
+                                        Width="100"/>
+                                    <GridViewColumn
+                                        Header="Email"
+                                        DisplayMemberBinding="{Binding Email}"
+                                        Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
